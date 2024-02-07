@@ -43,10 +43,10 @@ class Provider(str, Enum):
     HUGGINGFACE_TEXT_GENERATION_INFERENCE = "huggingface-text-generation-inference"
     PALM = "palm"
     BEDROCK = "bedrock"
+    MISTRAL = "mistral"
     # Note: The following providers are only supported on Databricks
     DATABRICKS_MODEL_SERVING = "databricks-model-serving"
     DATABRICKS = "databricks"
-    MISTRAL = "mistral"
 
     @classmethod
     def values(cls):
@@ -168,6 +168,7 @@ class OpenAIConfig(ConfigModel):
 
 class AnthropicConfig(ConfigModel):
     anthropic_api_key: str
+    anthropic_version: str
 
     # pylint: disable=no-self-argument
     @validator("anthropic_api_key", pre=True)
